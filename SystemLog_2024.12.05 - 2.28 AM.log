@@ -1,0 +1,22 @@
+Logger initialized. Writing to SystemLog_2024.12.05 - 2.28 AM.log
+Welcome to the Real-Time Ticketing System!
+User input configuration: Total Tickets=5, Release Rate=1, Release Interval=500ms, Retrieval Interval=500ms.
+Vendor and Customer threads started.
+Ticket added: Ticket-1 (Pool size: 1)
+Ticket removed: Ticket-1 (Pool size: 0)
+Customer purchased: Ticket-1
+Ticket added: Ticket-2 (Pool size: 1)
+Ticket removed: Ticket-2 (Pool size: 0)
+Customer purchased: Ticket-2
+Ticket added: Ticket-3 (Pool size: 1)
+Ticket removed: Ticket-3 (Pool size: 0)
+Customer purchased: Ticket-3
+Ticket added: Ticket-4 (Pool size: 1)
+Ticket removed: Ticket-4 (Pool size: 0)
+Customer purchased: Ticket-4
+Ticket added: Ticket-5 (Pool size: 1)
+Ticket removed: Ticket-5 (Pool size: 0)
+Customer purchased: Ticket-5
+System terminated.
+Customer interrupted.
+Logger closed.

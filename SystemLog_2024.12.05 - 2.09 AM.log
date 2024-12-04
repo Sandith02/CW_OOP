@@ -1,0 +1,41 @@
+[2024-12-05 02:09:00] Logger initialized. Writing to SystemLog_2024.12.05 - 2.09 AM.log
+[2024-12-05 02:09:00] Welcome to the Real-Time Ticketing System!
+[2024-12-05 02:09:05] Attempted to view configuration but no configuration was set.
+[2024-12-05 02:09:19] User input configuration: Total Tickets=10, Release Rate=2, Release Interval=500ms, Retrieval Interval=500ms.
+[2024-12-05 02:09:19] Configuration saved to config.json successfully.
+[2024-12-05 02:09:19] Configuration successfully set and saved to JSON.
+[2024-12-05 02:09:28] Displayed current configuration.
+[2024-12-05 02:09:33] Starting the system with the provided configuration.
+[2024-12-05 02:09:33] Vendor and Customer threads started.
+[2024-12-05 02:09:33] Ticket added: Ticket-1 (Pool size: 1)
+[2024-12-05 02:09:33] Ticket added: Ticket-2 (Pool size: 2)
+[2024-12-05 02:09:33] Ticket removed: Ticket-1 (Pool size: 1)
+[2024-12-05 02:09:33] Customer purchased: Ticket-1
+[2024-12-05 02:09:34] Ticket removed: Ticket-2 (Pool size: 0)
+[2024-12-05 02:09:34] Customer purchased: Ticket-2
+[2024-12-05 02:09:34] Ticket added: Ticket-3 (Pool size: 1)
+[2024-12-05 02:09:34] Ticket added: Ticket-4 (Pool size: 2)
+[2024-12-05 02:09:34] Ticket removed: Ticket-3 (Pool size: 1)
+[2024-12-05 02:09:34] Customer purchased: Ticket-3
+[2024-12-05 02:09:34] Ticket added: Ticket-5 (Pool size: 2)
+[2024-12-05 02:09:34] Ticket added: Ticket-6 (Pool size: 3)
+[2024-12-05 02:09:35] Ticket removed: Ticket-4 (Pool size: 2)
+[2024-12-05 02:09:35] Customer purchased: Ticket-4
+[2024-12-05 02:09:35] Ticket added: Ticket-7 (Pool size: 3)
+[2024-12-05 02:09:35] Ticket added: Ticket-8 (Pool size: 4)
+[2024-12-05 02:09:35] Ticket removed: Ticket-5 (Pool size: 3)
+[2024-12-05 02:09:35] Customer purchased: Ticket-5
+[2024-12-05 02:09:35] Ticket added: Ticket-9 (Pool size: 4)
+[2024-12-05 02:09:35] Ticket added: Ticket-10 (Pool size: 5)
+[2024-12-05 02:09:36] Ticket removed: Ticket-6 (Pool size: 4)
+[2024-12-05 02:09:36] Customer purchased: Ticket-6
+[2024-12-05 02:09:36] Ticket removed: Ticket-7 (Pool size: 3)
+[2024-12-05 02:09:36] Customer purchased: Ticket-7
+[2024-12-05 02:09:37] Ticket removed: Ticket-8 (Pool size: 2)
+[2024-12-05 02:09:37] Customer purchased: Ticket-8
+[2024-12-05 02:09:37] Ticket removed: Ticket-9 (Pool size: 1)
+[2024-12-05 02:09:37] Customer purchased: Ticket-9
+[2024-12-05 02:09:38] Ticket removed: Ticket-10 (Pool size: 0)
+[2024-12-05 02:09:38] Customer purchased: Ticket-10
+[2024-12-05 02:09:44] System terminated.
+[2024-12-05 02:09:44] Logger closed.

@@ -1,0 +1,10 @@
+[2024-12-05 02:16:44] Logger initialized. Writing to SystemLog_2024.12.05 - 2.16 AM.log
+[2024-12-05 02:16:44] Welcome to the Real-Time Ticketing System!
+[2024-12-05 02:16:56] User input configuration: Total Tickets=20, Release Rate=1, Release Interval=100ms, Retrieval Interval=100ms.
+[2024-12-05 02:16:56] Configuration saved to config.json successfully.
+[2024-12-05 02:16:56] Check the system.log files for the log
+[2024-12-05 02:17:37] Starting the system with the provided configuration.
+[2024-12-05 02:17:37] Vendor and Customer threads started.
+[2024-12-05 02:17:37] System terminated.
+[2024-12-05 02:17:37] Customer interrupted.
+[2024-12-05 02:17:37] Logger closed.
