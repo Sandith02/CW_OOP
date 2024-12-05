@@ -1,5 +1,5 @@
 {
-  "totalTickets": 5,
+  "totalTickets": 10,
   "releaseRate": 1,
   "releaseInterval": 500,
   "retrievalInterval": 500,

@@ -10,7 +10,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Logger.initialize(); // Initialize the logger
 
-        Logger.log("Welcome to the Real-Time Ticketing System!");
         System.out.println("Welcome to the Real-Time Ticketing System!");
 
         Configuration config = null;
