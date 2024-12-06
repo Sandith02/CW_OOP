@@ -16,6 +16,10 @@ public class Ticket {
 
     private Timestamp purchaseTime; // Records when the ticket was purchased (nullable)
 
+    @ManyToOne
+    @JoinColumn(name = "customer_id") // Foreign key column in the "tickets" table
+    private Customer customer; // Link to the Customer who purchased the ticket
+
     // Getters and Setters
     public Long getId() {
         return id;
@@ -39,5 +43,13 @@ public class Ticket {
 
     public void setPurchaseTime(Timestamp purchaseTime) {
         this.purchaseTime = purchaseTime;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }
