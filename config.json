@@ -1,6 +1,6 @@
 {
   "totalTickets": 10,
-  "releaseRate": 1,
+  "releaseRate": 2,
   "releaseInterval": 500,
   "retrievalInterval": 500,
   "ticketPoolCapacity": 10

@@ -1,0 +1,36 @@
+Logger initialized. Writing to SystemLog_2024.12.07 - 3.54 PM.log
+Logger initialized. Writing to SystemLog_2024.12.07 - 3.54 PM.log
+User input configuration: Total Tickets=10, Release Rate=2, Release Interval=500ms, Retrieval Interval=500ms.
+Vendor and Customer threads started.
+Ticket added: Ticket-1 (Pool size: 1)
+Ticket added: Ticket-2 (Pool size: 2)
+Ticket removed: Ticket-1 (Pool size: 1)
+Customer purchased: Ticket-1
+Ticket removed: Ticket-2 (Pool size: 0)
+Customer purchased: Ticket-2
+Ticket added: Ticket-3 (Pool size: 1)
+Ticket added: Ticket-4 (Pool size: 2)
+Ticket added: Ticket-5 (Pool size: 3)
+Ticket added: Ticket-6 (Pool size: 4)
+Ticket removed: Ticket-3 (Pool size: 3)
+Customer purchased: Ticket-3
+Ticket added: Ticket-7 (Pool size: 4)
+Ticket added: Ticket-8 (Pool size: 5)
+Ticket removed: Ticket-4 (Pool size: 4)
+Customer purchased: Ticket-4
+Ticket added: Ticket-9 (Pool size: 5)
+Ticket added: Ticket-10 (Pool size: 6)
+Ticket removed: Ticket-5 (Pool size: 5)
+Customer purchased: Ticket-5
+Ticket removed: Ticket-6 (Pool size: 4)
+Customer purchased: Ticket-6
+Ticket removed: Ticket-7 (Pool size: 3)
+Customer purchased: Ticket-7
+Ticket removed: Ticket-8 (Pool size: 2)
+Customer purchased: Ticket-8
+Ticket removed: Ticket-9 (Pool size: 1)
+Customer purchased: Ticket-9
+Ticket removed: Ticket-10 (Pool size: 0)
+Customer purchased: Ticket-10
+System terminated.
+Logger closed.
