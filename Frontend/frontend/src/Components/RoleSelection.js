@@ -6,9 +6,9 @@ const RoleSelection = () => {
 
   const handleRoleSelect = (role) => {
     if (role === "Vendor") {
-      navigate("/vendor-login"); // Redirect to login page first
+      navigate("/vendor-login"); // Redirect to vendor login
     } else if (role === "Customer") {
-      navigate("/customer");
+      navigate("/customer-login"); // Redirect to customer login
     }
   };
 
