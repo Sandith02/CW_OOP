@@ -23,7 +23,6 @@ public class CustomerController {
     @Autowired
     private CustomerRepository customerRepository;
 
-    // Simulate session storage for simplicity
     private static final Map<String, Object> customerSession = new HashMap<>();
 
     // Customer Login
@@ -50,6 +49,7 @@ public class CustomerController {
         return ResponseEntity.badRequest().body("No customer is currently logged in.");
     }
 
+    // Register Customer
     @PostMapping("/register")
     public ResponseEntity<?> registerCustomer(@RequestBody Customer customer) {
         if (customerRepository.findByUsername(customer.getUsername()).isPresent()) {
@@ -59,10 +59,14 @@ public class CustomerController {
         return ResponseEntity.ok("Customer registered successfully!");
     }
 
-    // View all available tickets
+    // View all available tickets (visible to all customers)
     @GetMapping("/tickets")
-    public List<Ticket> getAvailableTickets() {
-        return ticketRepository.findAvailableTickets();
+    public ResponseEntity<List<Ticket>> getAvailableTickets() {
+        List<Ticket> availableTickets = ticketRepository.findAvailableTickets();
+        if (availableTickets.isEmpty()) {
+            return ResponseEntity.ok().body(availableTickets);
+        }
+        return ResponseEntity.ok(availableTickets);
     }
 
     // Purchase a ticket
@@ -84,7 +88,8 @@ public class CustomerController {
 
     // View Purchase History
     @GetMapping("/{customerId}/history")
-    public List<Ticket> getPurchaseHistory(@PathVariable Long customerId) {
-        return ticketRepository.findByCustomerId(customerId);
+    public ResponseEntity<List<Ticket>> getPurchaseHistory(@PathVariable Long customerId) {
+        List<Ticket> purchaseHistory = ticketRepository.findByCustomerId(customerId);
+        return ResponseEntity.ok(purchaseHistory);
     }
 }

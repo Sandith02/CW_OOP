@@ -1,24 +1,29 @@
 package com.example.backend.model;
 
 import jakarta.persistence.*;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "tickets") // Map this class to the "tickets" table in the database
+@Table(name = "tickets")
 public class Ticket {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false) // "status" is required (cannot be null)
-    private String status; // "available" or "sold"
-
-    private Timestamp purchaseTime; // Records when the ticket was purchased (nullable)
+    @Column(nullable = false)
+    private String status; // "AVAILABLE" or "SOLD"
 
     @ManyToOne
-    @JoinColumn(name = "customer_id") // Foreign key column in the "tickets" table
-    private Customer customer; // Link to the Customer who purchased the ticket
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "vendor_id", referencedColumnName = "id", nullable = false)
+    private Vendor vendor; // Reference to the vendor who created the ticket
+
+    @Column(name = "purchase_time")
+    private LocalDateTime purchaseTime;
 
     // Getters and Setters
     public Long getId() {
@@ -37,19 +42,27 @@ public class Ticket {
         this.status = status;
     }
 
-    public Timestamp getPurchaseTime() {
-        return purchaseTime;
-    }
-
-    public void setPurchaseTime(Timestamp purchaseTime) {
-        this.purchaseTime = purchaseTime;
-    }
-
     public Customer getCustomer() {
         return customer;
     }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Vendor getVendor() {
+        return vendor;
+    }
+
+    public void setVendor(Vendor vendor) {
+        this.vendor = vendor;
+    }
+
+    public LocalDateTime getPurchaseTime() {
+        return purchaseTime;
+    }
+
+    public void setPurchaseTime(LocalDateTime purchaseTime) {
+        this.purchaseTime = purchaseTime;
     }
 }

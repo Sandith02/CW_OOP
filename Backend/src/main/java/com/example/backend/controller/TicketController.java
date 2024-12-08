@@ -1,7 +1,9 @@
 package com.example.backend.controller;
 
 import com.example.backend.model.Ticket;
+import com.example.backend.model.Vendor;
 import com.example.backend.repository.TicketRepository;
+import com.example.backend.repository.VendorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,28 +18,55 @@ public class TicketController {
     @Autowired
     private TicketRepository ticketRepository;
 
-    // Retrieve all tickets
-    @GetMapping
-    public ResponseEntity<List<Ticket>> getAllTickets() {
-        List<Ticket> tickets = ticketRepository.findAll();
-        return ResponseEntity.ok(tickets);
-    }
+    @Autowired
+    private VendorRepository vendorRepository;
 
-    // Retrieve a ticket by ID
-    @GetMapping("/{id}")
-    public ResponseEntity<Ticket> getTicketById(@PathVariable Long id) {
-        Optional<Ticket> ticket = ticketRepository.findById(id);
-        return ticket.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    @Autowired
+    private LoginController loginController;
+
+    // Retrieve tickets for the logged-in vendor
+    @GetMapping
+    public ResponseEntity<?> getTicketsForLoggedInVendor() {
+        String loggedInVendorUsername = loginController.getLoggedInVendor();
+        if (loggedInVendorUsername == null) {
+            return ResponseEntity.status(401).body("Unauthorized: No vendor is logged in.");
+        }
+
+        Optional<Vendor> vendor = vendorRepository.findByUsername(loggedInVendorUsername);
+        if (vendor.isEmpty()) {
+            return ResponseEntity.status(404).body("Vendor not found.");
+        }
+
+        List<Ticket> tickets = ticketRepository.findTicketsByVendorId(vendor.get().getId());
+        return ResponseEntity.ok(tickets);
     }
 
     // Create a new ticket
     @PostMapping
-    public ResponseEntity<Ticket> createTicket(@RequestBody Ticket ticket) {
-        Ticket savedTicket = ticketRepository.save(ticket);
-        return ResponseEntity.ok(savedTicket);
+    public ResponseEntity<?> createTicket(@RequestBody Ticket ticket) {
+        String loggedInVendorUsername = loginController.getLoggedInVendor();
+        if (loggedInVendorUsername == null) {
+            return ResponseEntity.status(401).body("Unauthorized: No vendor is logged in.");
+        }
+
+        Optional<Vendor> vendor = vendorRepository.findByUsername(loggedInVendorUsername);
+        if (vendor.isEmpty()) {
+            return ResponseEntity.status(404).body("Vendor not found.");
+        }
+
+        ticket.setVendor(vendor.get()); // Associate the ticket with the logged-in vendor
+        try {
+            Ticket savedTicket = ticketRepository.save(ticket);
+            return ResponseEntity.ok(savedTicket);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Failed to create ticket: " + e.getMessage());
+        }
     }
 
-    // Update an existing ticket
+    // Other methods (update, delete, etc.) remain unchanged
+
+
+// Update an existing ticket
     @PutMapping("/{id}")
     public ResponseEntity<Ticket> updateTicket(@PathVariable Long id, @RequestBody Ticket ticketDetails) {
         Optional<Ticket> ticket = ticketRepository.findById(id);

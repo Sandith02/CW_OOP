@@ -10,17 +10,18 @@ import java.util.List;
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
-    // Find tickets by status (case-insensitive, flexible usage)
+    // Find tickets by status
     List<Ticket> findByStatus(String status);
 
-    // Custom JPQL query to find available tickets with exact case match
-    @Query("SELECT t FROM Ticket t WHERE t.status = 'AVAILABLE'")
-    List<Ticket> findAvailableTickets();
-
-    // Count the number of tickets by a specific status
-    long countByStatus(String status);
-
-    // Find tickets by customer ID
+    // Custom query to find tickets for a specific customer
     @Query("SELECT t FROM Ticket t WHERE t.customer.id = :customerId")
     List<Ticket> findByCustomerId(Long customerId);
+
+    // Find all available tickets (for customers)
+    @Query("SELECT t FROM Ticket t WHERE t.status = 'AVAILABLE' AND t.customer IS NULL")
+    List<Ticket> findAvailableTickets();
+
+    // Find tickets by vendor ID (for vendors)
+    @Query("SELECT t FROM Ticket t WHERE t.vendor.id = :vendorId")
+    List<Ticket> findTicketsByVendorId(Long vendorId);
 }

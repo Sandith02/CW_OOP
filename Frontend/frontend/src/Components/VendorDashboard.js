@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -8,27 +9,31 @@ const VendorDashboard = () => {
   const [loading, setLoading] = useState(false); // Loading state
   const navigate = useNavigate();
 
-  // Fetch all tickets from backend
   const fetchTickets = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8080/api/tickets");
-      if (response.ok) {
-        const data = await response.json();
-        setTickets(data);
-      } else {
-        const error = await response.text();
-        console.error("Failed to fetch tickets:", error);
-        alert("Error fetching tickets: " + error);
-      }
+        const response = await fetch("http://localhost:8080/api/tickets", {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        });
+        if (response.ok) {
+            const data = await response.json();
+            setTickets(data);
+        } else {
+            const error = await response.text();
+            console.error("Failed to fetch tickets:", error);
+            alert("Error fetching tickets: " + error);
+        }
     } catch (error) {
-      console.error("Network error:", error);
-      alert("Network error. Please try again later.");
+        console.error("Network error:", error);
+        alert("Network error. Please try again later.");
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
-  };
+};
 
+
+  // Create a new ticket
   // Create a new ticket
   const createTicket = async () => {
     if (!newTicket.status || newTicket.status.trim() === "") {
@@ -57,6 +62,7 @@ const VendorDashboard = () => {
       setLoading(false);
     }
   };
+
 
   // Update an existing ticket
   const updateTicket = async (ticketId) => {
