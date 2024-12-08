@@ -1,0 +1,71 @@
+/* RoleSelection.css */
+.role-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #b29494; /* Fallback color */
+  background-image: url(/frontend/src/Assets/Bpic.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  font-family: Arial, sans-serif;
+}
+
+.role-selection h1 {
+  margin-bottom: 20px;
+}
+
+.role-selection p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  line-height: 1.6; /* Better readability */
+}
+
+.role-selection-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.role-selection-button {
+  padding: 20px 40px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.role-selection-button:active {
+  transform: scale(0.95);
+}
+
+.role-selection-button.vendor {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.role-selection-button.vendor:hover {
+  background-color: #0056b3;
+}
+
+.role-selection-button.customer {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.role-selection-button.customer:hover {
+  background-color: #218838;
+}
+
+.role-selection-button:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "../Styles/RoleSelection.css";
 
 const RoleSelection = () => {
   const navigate = useNavigate();
@@ -13,31 +14,23 @@ const RoleSelection = () => {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
+    <div className="role-selection">
       <h1>Welcome to the Ticketing System</h1>
-      <p>Please select your role:</p>
-      <button
-        style={{
-          padding: "10px 20px",
-          margin: "20px",
-          fontSize: "18px",
-          cursor: "pointer",
-        }}
-        onClick={() => handleRoleSelect("Vendor")}
-      >
-        I am a Vendor
-      </button>
-      <button
-        style={{
-          padding: "10px 20px",
-          margin: "20px",
-          fontSize: "18px",
-          cursor: "pointer",
-        }}
-        onClick={() => handleRoleSelect("Customer")}
-      >
-        I am a Customer
-      </button>
+      <p>Please select your role to proceed:</p>
+      <div className="role-selection-buttons">
+        <button
+          className="role-selection-button vendor"
+          onClick={() => handleRoleSelect("Vendor")}
+        >
+          I am a Vendor
+        </button>
+        <button
+          className="role-selection-button customer"
+          onClick={() => handleRoleSelect("Customer")}
+        >
+          I am a Customer
+        </button>
+      </div>
     </div>
   );
 };
