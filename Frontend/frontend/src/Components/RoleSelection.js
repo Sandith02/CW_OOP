@@ -15,20 +15,25 @@ const RoleSelection = () => {
 
   return (
     <div className="role-selection">
-      <h1>Welcome to the Ticketing System</h1>
-      <p>Please select your role to proceed:</p>
+      <h1>simpleEvents</h1>
+      <div className="subTitle1">
+         - Welcome to My Minimal Ticketing Portal -
+      </div>
+      <div className="subTitle2">
+        Please select your role
+      </div>
       <div className="role-selection-buttons">
         <button
-          className="role-selection-button vendor"
+          className="btn1"
           onClick={() => handleRoleSelect("Vendor")}
         >
-          I am a Vendor
+          Vendor
         </button>
         <button
-          className="role-selection-button customer"
+          className="btn2"
           onClick={() => handleRoleSelect("Customer")}
         >
-          I am a Customer
+          Customer
         </button>
       </div>
     </div>
