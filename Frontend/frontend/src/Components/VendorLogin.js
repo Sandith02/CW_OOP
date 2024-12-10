@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../Styles/VendorLogin.css"; // Import the external CSS file
 
 const VendorLogin = () => {
   const [username, setUsername] = useState("");
@@ -31,15 +32,17 @@ const VendorLogin = () => {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Vendor Login</h1>
+
+    <div className="container">
+      <div className="title">Vendor Login</div>
+      <div className="fields">
       <div>
         <input
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          style={{ padding: "10px", margin: "10px", width: "200px" }}
+          className="input"
         />
       </div>
       <div>
@@ -48,36 +51,35 @@ const VendorLogin = () => {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          style={{ padding: "10px", margin: "10px", width: "200px" }}
+          className="input"
         />
       </div>
-      <button
-        onClick={handleLogin}
-        style={{
-          padding: "10px 20px",
-          margin: "10px",
-          fontSize: "18px",
-          cursor: "pointer",
-        }}
-      >
-        Login
-      </button>
-      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-      <p>
-        Don't have an account?{" "}
-        <button
-          onClick={() => navigate("/vendor-register")}
-          style={{
-            background: "none",
-            border: "none",
-            color: "blue",
-            cursor: "pointer",
-            textDecoration: "underline",
-          }}
-        >
-          Register here
-        </button>
-      </p>
+      </div>
+      <button onClick={handleLogin} className="animated-button">
+  <svg xmlns="http://www.w3.org/2000/svg" className="arr-2" viewBox="0 0 24 24">
+    <path
+      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+    ></path>
+  </svg>
+  <span className="text">Login</span>
+  <span className="circle"></span>
+  <svg xmlns="http://www.w3.org/2000/svg" className="arr-1" viewBox="0 0 24 24">
+    <path
+      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+    ></path>
+  </svg>
+</button>
+{errorMessage && <p className="errorMessage">{errorMessage}</p>}
+<p className="message">
+  Don't have an account?{" "}
+  <button
+    onClick={() => navigate("/vendor-register")}
+    className="register-link"
+  >
+    Register here
+  </button>
+</p>
+
     </div>
   );
 };

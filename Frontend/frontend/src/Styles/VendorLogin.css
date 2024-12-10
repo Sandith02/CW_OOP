@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=League+Spartan:wght@100&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+   }
+   body {
+    background: linear-gradient(135deg, #00657b, #000d27, #f107af, #a18cd1); /* Pink and blue gradient */
+    height: 100vh; /* Ensure it covers the full viewport */
+    background-size: 400% 400%; /* Animation effect */
+    animation: gradientBG 15s ease infinite; /* Add gradient animation */
+  }
+.container {
+    height: 400px;
+    width: 400px;
+    background: rgba(255, 255, 255, 0.2); /* Transparent background for glass effect */
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns content horizontally within the container */
+    position: absolute; /* For vertical centering relative to the viewport */
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the container */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Optional: Adds a light border */
+  }
+  
+.title{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin-bottom: 4rem;
+  }
+
+.input {
+    border-radius: 25px;
+    border: none;
+    font-size:0.8rem;
+    font-weight: 500;
+    padding: 15px;
+    margin: 10px;
+    width: 250px;
+  }
+.fields{
+    margin-bottom: 4rem;
+  }
+
+.errorMessage {
+    color: red;
+  }
+/* From Uiverse.io by ryota1231 */ 
+.animated-button {
+    margin-bottom: 12rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 36px;
+    border: 4px solid;
+    border-color: transparent;
+    font-size: 16px;
+    background-color: ;
+    border-radius: 100px;
+    font-weight: 600;
+    color: #1f387e;
+    box-shadow: 0 0 0 2px #ffffff;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button svg {
+    position: absolute;
+    width: 24px;
+    fill: #1f387e;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button .arr-1 {
+    right: 16px;
+  }
+  
+  .animated-button .arr-2 {
+    left: -25%;
+  }
+  
+  .animated-button .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #c5e5e4;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button .text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .animated-button:hover {
+    box-shadow: 0 0 0 12px transparent;
+    color: #212121;
+    border-radius: 12px;
+  }
+  
+  .animated-button:hover .arr-1 {
+    right: -25%;
+  }
+  
+  .animated-button:hover .arr-2 {
+    left: 16px;
+  }
+  
+  .animated-button:hover .text {
+    transform: translateX(12px);
+  }
+  
+  .animated-button:hover svg {
+    fill: #1f387e;
+  }
+  
+  .animated-button:active {
+    scale: 0.95;
+    box-shadow: 0 0 0 4px greenyellow;
+  }
+  
+  .animated-button:hover .circle {
+    width: 220px;
+    height: 220px;
+    opacity: 1;
+  }
+  
+.message{
+    color: #eaf8ff;
+    font-weight: 500;
+}
+.register-link {
+    font-weight: 300;
+    background: none;
+    border: none;
+    color: rgb(168, 245, 255);
+    cursor: pointer;
+    text-decoration: underline;
+}
+  
+  

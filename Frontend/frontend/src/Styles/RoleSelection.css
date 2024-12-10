@@ -23,14 +23,14 @@
 
 .role-selection h1 {
   font-weight: 600;
-  margin-top: 13rem;
+  margin-top: 12rem;
   text-align: center;
   background: linear-gradient(to right, rgb(255, 255, 255) ,rgb(131, 213, 219));
   background-clip: text;
   color: transparent;
   font-size: 10rem;
   transform: translateY(-100%);
-  animation: slideDown 3s ease forwards; 
+  animation: slideDown 4s ease forwards; 
 }
 @keyframes slideDown {
     0% {
@@ -44,7 +44,8 @@
 }
 
 .subTitle1{
-  font-weight: 500;
+  letter-spacing: 0.1rem;
+  font-weight: 400;
   text-align: center;
   background: linear-gradient(to right, rgb(115, 115, 115) ,rgb(255, 255, 255));
   background-clip: text;
@@ -52,7 +53,7 @@
   font-size: 1.2rem;
   margin-bottom: 8rem;
   transform: translateY(-100%);
-  animation: slideDown 3s ease forwards;
+  animation: slideDown 6s ease forwards;
    
 }
 @keyframes slideDown {
@@ -72,10 +73,11 @@
   background-clip: text;
   color: transparent;
   font-weight: 200;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
   margin-bottom: 1rem;
   transform: translateY(-100%);
-  animation: slideDown 3s ease forwards; 
+  animation: slideDown 4s ease forwards; 
 }
 @keyframes slideDown {
     0% {
