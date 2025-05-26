@@ -3,14 +3,14 @@ import java.util.Queue;
 
 public class TicketPool {
     private final Queue<String> tickets = new LinkedList<>();
-    private final int capacity;
+    private final int maxTicketCapacity;
 
-    public TicketPool(int capacity) {
-        this.capacity = capacity;
+    public TicketPool(int maxTicketCapacity) {
+        this.maxTicketCapacity = maxTicketCapacity;
     }
 
     public synchronized void addTicket(String ticket) throws InterruptedException {
-        while (tickets.size() >= capacity) {
+        while (tickets.size() >= maxTicketCapacity) {
             wait();
         }
         tickets.add(ticket);

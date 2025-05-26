@@ -1,34 +1,29 @@
 public class Configuration {
     private int totalTickets;
-    private int releaseRate;
-    private int releaseInterval;
-    private int retrievalInterval;
-    private int ticketPoolCapacity = 10; // Default capacity
+    private int ticketReleaseRate; // Tickets released per interval
+    private int customerRetrievalRate; // Customer retrieval interval in ms
+    private int maxTicketCapacity; // Maximum number of tickets in the pool
 
-    public Configuration(int totalTickets, int releaseRate, int releaseInterval, int retrievalInterval) {
+    public Configuration(int totalTickets, int ticketReleaseRate, int customerRetrievalRate, int maxTicketCapacity) {
         this.totalTickets = totalTickets;
-        this.releaseRate = releaseRate;
-        this.releaseInterval = releaseInterval;
-        this.retrievalInterval = retrievalInterval;
+        this.ticketReleaseRate = ticketReleaseRate;
+        this.customerRetrievalRate = customerRetrievalRate;
+        this.maxTicketCapacity = maxTicketCapacity;
     }
 
     public int getTotalTickets() {
         return totalTickets;
     }
 
-    public int getReleaseRate() {
-        return releaseRate;
+    public int getTicketReleaseRate() {
+        return ticketReleaseRate;
     }
 
-    public int getReleaseInterval() {
-        return releaseInterval;
+    public int getCustomerRetrievalRate() {
+        return customerRetrievalRate;
     }
 
-    public int getRetrievalInterval() {
-        return retrievalInterval;
-    }
-
-    public int getTicketPoolCapacity() {
-        return ticketPoolCapacity;
+    public int getMaxTicketCapacity() {
+        return maxTicketCapacity;
     }
 }

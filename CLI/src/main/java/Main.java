@@ -48,9 +48,9 @@ public class Main {
         }
 
         // Initialize and start threads
-        TicketPool pool = new TicketPool(config.getTicketPoolCapacity());
-        Vendor vendor = new Vendor(pool, config.getTotalTickets(), config.getReleaseRate(), config.getReleaseInterval());
-        Customer customer = new Customer(pool, config.getRetrievalInterval());
+        TicketPool pool = new TicketPool(config.getMaxTicketCapacity());
+        Vendor vendor = new Vendor(pool, config.getTotalTickets(), config.getTicketReleaseRate());
+        Customer customer = new Customer(pool, config.getCustomerRetrievalRate());
 
         Thread vendorThread = new Thread(vendor, "Vendor");
         Thread customerThread = new Thread(customer, "Customer");
@@ -85,22 +85,22 @@ public class Main {
         System.out.print("Enter total number of tickets: ");
         int totalTickets = scanner.nextInt();
 
-        System.out.print("Enter ticket release rate (number of tickets per release): ");
-        int releaseRate = scanner.nextInt();
+        System.out.print("Enter ticket release rate (tickets per release): ");
+        int ticketReleaseRate = scanner.nextInt();
 
-        System.out.print("Enter ticket release interval (ms): ");
-        int releaseInterval = scanner.nextInt();
+        System.out.print("Enter customer retrieval rate (ms): ");
+        int customerRetrievalRate = scanner.nextInt();
 
-        System.out.print("Enter ticket retrieval interval (ms): ");
-        int retrievalInterval = scanner.nextInt();
+        System.out.print("Enter maximum ticket capacity: ");
+        int maxTicketCapacity = scanner.nextInt();
 
         Logger.log("User input configuration: " +
                 "Total Tickets=" + totalTickets + ", " +
-                "Release Rate=" + releaseRate + ", " +
-                "Release Interval=" + releaseInterval + "ms, " +
-                "Retrieval Interval=" + retrievalInterval + "ms.");
+                "Ticket Release Rate=" + ticketReleaseRate + ", " +
+                "Customer Retrieval Rate=" + customerRetrievalRate + "ms, " +
+                "Maximum Ticket Capacity=" + maxTicketCapacity);
 
-        return new Configuration(totalTickets, releaseRate, releaseInterval, retrievalInterval);
+        return new Configuration(totalTickets, ticketReleaseRate, customerRetrievalRate, maxTicketCapacity);
     }
 
     public static void displayCurrentConfiguration(Configuration config) {
@@ -108,9 +108,9 @@ public class Main {
         System.out.println("       CURRENT CONFIGURATION         ");
         System.out.println("=====================================");
         System.out.println("Total Tickets: " + config.getTotalTickets());
-        System.out.println("Release Rate: " + config.getReleaseRate());
-        System.out.println("Release Interval: " + config.getReleaseInterval() + " ms");
-        System.out.println("Retrieval Interval: " + config.getRetrievalInterval() + " ms");
+        System.out.println("Ticket Release Rate: " + config.getTicketReleaseRate());
+        System.out.println("Customer Retrieval Rate: " + config.getCustomerRetrievalRate() + " ms");
+        System.out.println("Maximum Ticket Capacity: " + config.getMaxTicketCapacity());
         System.out.println("=====================================");
     }
 
